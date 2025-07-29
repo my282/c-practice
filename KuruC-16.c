@@ -17,13 +17,14 @@ void input(int i){
     printf("名前を入力してください:");
     scanf("%s", &data[i].name);
 
-    printf("性別を「男性」「女性」「それ以外」「未回答」のいずれかで入力してください:");
+    printf("性別を「男性」「女性」「それ以外」「無回答」のいずれかで入力してください:");
     scanf("%s", &data[i].sex);
 
     printf("%d人目の情報の入力が完了しました\n",i+1);
 }
 
 void output(int i){
+    printf("%d人目\n",i);
     printf("年齢:%d\n",data[i].age);
     printf("名前:%s\n",data[i].name);
     printf("性別:%s\n",data[i].sex);
