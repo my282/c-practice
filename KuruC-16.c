@@ -24,7 +24,7 @@ void input(int i){
 }
 
 void output(int i){
-    printf("%d人目\n",i);
+    printf("%d人目\n",i+1);
     printf("年齢:%d\n",data[i].age);
     printf("名前:%s\n",data[i].name);
     printf("性別:%s\n",data[i].sex);
