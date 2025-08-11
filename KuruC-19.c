@@ -4,33 +4,51 @@
 typedef struct{
     char name[256];
     int age;
-    int sex;
-}People;
+    int sex;//男性-１　女性-２　とする
+}people;
 
-void input(People* data,int a);
-void output(People data);
+people* data;
+
+void input(people data[], int count);
+void output(people data[], int count);
 
 int main(void){
-    int datasize = 10;
+    int i = 10; //iを配列の数とする
+    int j = 2; //10*jだけメモリの確保する数を増やす
+
+    data = malloc(sizeof(people)*i);
     int count = 0; //人数カウント用
-    int j;
-    People *data;
-    data = (People*)malloc(sizeof(int)*datasize);
     while(1){
-        input(&data[count],j);
-        if(data[count].age == -1);
+        input(data,count);
+        if(data[count].age == -1){
+            i = count;
             break;
+        } 
         count++;
+        if(count == i){
+            data = realloc(data,sizeof(people)*(10*j));
+            j++;
+        } 
     }
+    for (count = 0;count < i; count++){
+       output(data,count);
+    }
+
+    free(data);
+    
 }
 
-void input(People* data,int n){
-    printf("%d人目の情報の入力を行います\n",n+1);
-    printf("年齢を入力してください:");
-    scanf("%d", &(*data).age);
-    printf("名前を入力してください:");
-    scanf("%s", (*data).name);
-    printf("性別を「男性」「女性」「それ以外」「無回答」のいずれかで入力してください:");
-    scanf("%s", &(*data).sex);
-    printf("%d人目の情報の入力が完了しました\n",n+1);
+void input(people data[], int count){
+    printf("名前を入力してください\n");
+    scanf("%s",data[count].name);
+    printf("年齢を入力してください\n");
+    scanf("%d",&data[count].age);
+    printf("性別を入力してください(男性-１ 女性-２)\n");
+    scanf("%d",&data[count].sex);
+}
+
+void output(people data[], int count){
+    printf("名前：%s\n",data[count].name);
+    printf("年齢：%d\n",data[count].age);
+    printf("性別：%d\n",data[count].sex);
 }

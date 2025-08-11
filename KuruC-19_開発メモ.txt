@@ -1,0 +1,5 @@
+1.typedefを使って名前、年齢、性別の構造体型people型の定義
+2.名前はchar型,年齢・性別はint型で管理
+3.入力用関数input,出力用関数outputのプロトタイプ宣言
+4.mallocを使用して配列の作成(ポインタ変数はdataとする)
+5.inputの引数はポインタ、outputの引数は実体
