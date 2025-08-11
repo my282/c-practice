@@ -39,10 +39,11 @@ int main(void){
 }
 
 void input(people data[], int count){
-    printf("名前を入力してください\n");
-    scanf("%s",data[count].name);
+    printf("%d人目の情報を入力します\n",count+1);
     printf("年齢を入力してください\n");
     scanf("%d",&data[count].age);
+    printf("名前を入力してください\n");
+    scanf("%s",data[count].name);
     printf("性別を入力してください(男性-１ 女性-２)\n");
     scanf("%d",&data[count].sex);
 }
@@ -50,5 +51,9 @@ void input(people data[], int count){
 void output(people data[], int count){
     printf("名前：%s\n",data[count].name);
     printf("年齢：%d\n",data[count].age);
-    printf("性別：%d\n",data[count].sex);
+    if(data[count].sex == 1){
+        printf("性別:男性");
+    }else{
+        printf("性別:女性");
+    }
 }
